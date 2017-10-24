@@ -349,7 +349,7 @@ class tomcat (
   }
 
   # The whole tomcat configuration directory can be recursively overriden
-  if $tomcat::source_dir {
+  if ($tomcat::source_dir != undef and $tomcat::source_dir != '') {
     file { 'tomcat.dir':
       ensure  => directory,
       path    => $tomcat::config_dir,
